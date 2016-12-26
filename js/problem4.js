@@ -27,3 +27,6 @@
 */
 
 // Write your JavaScript here
+
+// change element text
+// write function to countRupeeDenominationsOf([denominations list])
