@@ -37,7 +37,7 @@ function isDivisibleBy(dividend, divisor) {
 function countUpTo(numberOfKites) {
     var answer = "";
 
-    for(var i=1; i <= numberOfKites; i++ ) {
+    for( var i=1; i <= numberOfKites; i++ ) {
         var startAndLoseKiteFight = isDivisibleBy(i, 15);
         var loseKiteFight = isDivisibleBy(i, 5);
         var startKiteFight = isDivisibleBy(i, 3);

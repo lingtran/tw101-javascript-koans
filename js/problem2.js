@@ -43,7 +43,10 @@ function isTrafficJam(numberOfAutoRickshaws, isAfterEightPm) {
     changeElementText("#beforeOrAfter", "before or after");
     var answer = "maybe a";
 
-    // write some code here!
+    // if it's after 8pm, then no traffic jam is predicted regardless of number of auto rickshaws on the road
+    // if number of auto rickshaws is more than 40 and it's before 8pm, then a traffic jam is predicted
+    // if number of auto rickshaws is less than 40 and it's before 8pm, then no traffic jam is predicted
+
 
     changeElementText("#aOrNo", answer);
 }
