@@ -42,9 +42,11 @@ function fareForRide(distanceTraveled, timeWaiting, isNight) {
     changeElementText("#distanceTraveled", distanceTraveled);
     changeElementText("#timeWaiting", timeWaiting);
     changeElementText("#nightOrDay", timeOfDay[isNight]);
-    var fare = "some amount";
+    var fare = calculateDayFare(distanceTraveled, timeWaiting);
 
-
+    if (isNight) {
+        fare = calculateNightFare(fare);
+    }
 
     changeElementText("#fare", fare);
 }
@@ -52,4 +54,12 @@ function fareForRide(distanceTraveled, timeWaiting, isNight) {
 var timeOfDay = {
     true: "night",
     false: "day"
+}
+
+function calculateDayFare(distanceTraveled, timeWaiting) {
+    return 20 + (8 * (distanceTraveled-1)) + (4 * timeWaiting);
+}
+
+function calculateNightFare(dayFare) {
+    return dayFare * 1.5;
 }
