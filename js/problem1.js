@@ -26,28 +26,27 @@ function changeElementText(element, answer) {
 
 function kiteGame(numberOfKites) {
     changeElementText("#numberOfKites", numberOfKites);
-    var answer = "";
 
-    var i = 1;
-
-    while (i <= numberOfKites) {
-        if (checkDivisibleByNumber(i, 15)) {
-            answer += " Peche! Ipo kaate! ";
-        } else if (checkDivisibleByNumber(i, 5)) {
-            answer += " Ipo kaate! ";
-        } else if (checkDivisibleByNumber(i, 3)) {
-            answer += " Peche! ";
-        } else {
-            answer += i + " ";
-        }
-
-        i++;
-    }
-
-
-    changeElementText("#answer", answer);
+    changeElementText("#answer", countUpTo(numberOfKites));
 }
 
-function checkDivisibleByNumber(number, divisor) {
-    return number % divisor == 0;
+function isDivisibleBy(dividend, divisor) {
+    return dividend % divisor == 0;
+}
+
+function countUpTo(numberOfKites) {
+    var answer = "";
+
+    for(var i=1; i <= numberOfKites; i++ ) {
+        var startAndLoseKiteFight = isDivisibleBy(i, 15);
+        var loseKiteFight = isDivisibleBy(i, 5);
+        var startKiteFight = isDivisibleBy(i, 3);
+
+        if (startAndLoseKiteFight) { answer += " Peche! Ipo kaate! "; }
+        else if (loseKiteFight) { answer += " Ipo kaate! "; }
+        else if (startKiteFight) { answer += " Peche! "; }
+        else { answer += i + " "; }
+    }
+
+    return answer;
 }
