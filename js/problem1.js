@@ -28,7 +28,26 @@ function kiteGame(numberOfKites) {
     changeElementText("#numberOfKites", numberOfKites);
     var answer = "";
 
-    // write some code here!
+    var i = 1;
+
+    while (i <= numberOfKites) {
+        if (checkDivisibleByNumber(i, 15)) {
+            answer += " Peche! Ipo kaate! ";
+        } else if (checkDivisibleByNumber(i, 5)) {
+            answer += " Ipo kaate! ";
+        } else if (checkDivisibleByNumber(i, 3)) {
+            answer += " Peche! ";
+        } else {
+            answer += i + " ";
+        }
+
+        i++;
+    }
+
 
     changeElementText("#answer", answer);
+}
+
+function checkDivisibleByNumber(number, divisor) {
+    return number % divisor == 0;
 }
