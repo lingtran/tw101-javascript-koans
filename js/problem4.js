@@ -26,14 +26,29 @@
 
 */
 
-function changeElementText(element, sum) {
-    $(element).text(sum);
+function changeElementText(element, content) {
+    $(element).text(content);
 }
 
-function countRupeeDenominationsOf([denominations]) {
-    changeElementText("rupeeDenominations", denominations);
-    var sum = 0;
+function countRupeeDenominationsOf(denominations) {
+    changeElementText("#rupeeDenominations", denominations.join(", "));
 
-    changeElementText("sum", sum);
+    changeElementText("#sum", addRupeeTotal(denominations));
 
+}
+
+var validRupeeDenominations = [5, 10, 20, 50, 100, 500, 1000];
+
+function addRupeeTotal(denominations){
+    var total = 0;
+
+    for (var i = 0; i < denominations.length; i++) {
+        if (validRupeeDenominations.includes(denominations[i])) {
+            total += denominations[i];
+        } else {
+            break;
+        }
+    }
+
+    return total;
 }
