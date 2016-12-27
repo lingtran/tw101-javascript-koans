@@ -33,4 +33,16 @@
      count: 7
  */
 
-// Write your JavaScript here
+function changeElement(element, content) {
+        $(element).append(content.join(" ") + "<br>");
+}
+
+function presentOriginalText(text) {
+    text.forEach(function(wordGroup) {
+        changeElement("#advertisingText", wordGroup);
+    })
+}
+
+function correctAdvertisingText(text) {
+    presentOriginalText(text);
+}
