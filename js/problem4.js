@@ -26,7 +26,14 @@
 
 */
 
-// Write your JavaScript here
+function changeElementText(element, sum) {
+    $(element).text(sum);
+}
 
-// change element text
-// write function to countRupeeDenominationsOf([denominations list])
+function countRupeeDenominationsOf([denominations]) {
+    changeElementText("rupeeDenominations", denominations);
+    var sum = 0;
+
+    changeElementText("sum", sum);
+
+}
