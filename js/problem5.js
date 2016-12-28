@@ -34,12 +34,12 @@
  */
 
 function changeElement(element, content) {
-    $(element).append(content.join(" ") + "<br>");
+    $(element).append(content);
 }
 
 function presentOriginalText(text) {
     text.forEach(function(wordGroup) {
-        changeElement("#advertisingText", wordGroup);
+        changeElement("#advertisingText", wordGroup.join(" ") + "<br>");
     })
 }
 
@@ -60,12 +60,13 @@ function formatCollection(collection) {
     return collection.reduce(concatenatePair).join(" ");
 }
 
-function presentCorrectedText(element, newText) {
-    $(element).text(formatCollection(newText));
+function countWords(text) {
+   return text.reduce(function(a, b){return a + b.length}, 0)
 }
 
 function correctAdvertisingText(text) {
     presentOriginalText(text);
     var correctText = makesCorrectionToText(text);
-    presentCorrectedText("#correctedText", correctText);
+    changeElement("#correctedText", formatCollection(correctText));
+    changeElement("#wordCount", countWords(correctText));
 }
