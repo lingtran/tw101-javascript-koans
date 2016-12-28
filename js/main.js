@@ -13,6 +13,6 @@ $(document).ready(function() {
     countRupeeDenominationsOf([20, 50, 10, 20, 13, 500]);
 
     // Problem 5
-    // call your problem 5 code here
+    correctAdvertisingText( [["zara", "dhyaan", "dein"], ["mazarat", "chahenge"], ["attention", "please"]])
 
 });

@@ -33,4 +33,39 @@
      count: 7
  */
 
-// Write your JavaScript here
+function changeElement(element, content) {
+    $(element).append(content.join(" ") + "<br>");
+}
+
+function presentOriginalText(text) {
+    text.forEach(function(wordGroup) {
+        changeElement("#advertisingText", wordGroup);
+    })
+}
+
+function reverseText(text) {
+    return text.reverse();
+}
+
+function concatenatePair(a, b) {
+    return a.concat(b);
+}
+
+function makesCorrectionToText(text) {
+    text[1] = reverseText(text[1]);
+    return text;
+}
+
+function formatCollection(collection) {
+    return collection.reduce(concatenatePair).join(" ");
+}
+
+function presentCorrectedText(element, newText) {
+    $(element).text(formatCollection(newText));
+}
+
+function correctAdvertisingText(text) {
+    presentOriginalText(text);
+    var correctText = makesCorrectionToText(text);
+    presentCorrectedText("#correctedText", correctText);
+}
