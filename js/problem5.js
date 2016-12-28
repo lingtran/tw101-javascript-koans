@@ -34,7 +34,7 @@
  */
 
 function changeElement(element, content) {
-        $(element).append(content.join(" ") + "<br>");
+    $(element).append(content.join(" ") + "<br>");
 }
 
 function presentOriginalText(text) {
@@ -43,6 +43,29 @@ function presentOriginalText(text) {
     })
 }
 
+function reverseText(text) {
+    return text.reverse();
+}
+
+function concatenatePair(a, b) {
+    return a.concat(b);
+}
+
+function makesCorrectionToText(text) {
+    text[1] = reverseText(text[1]);
+    return text;
+}
+
+function formatCollection(collection) {
+    return collection.reduce(concatenatePair).join(" ");
+}
+
+function presentCorrectedText(element, newText) {
+    $(element).text(formatCollection(newText));
+}
+
 function correctAdvertisingText(text) {
     presentOriginalText(text);
+    var correctText = makesCorrectionToText(text);
+    presentCorrectedText("#correctedText", correctText);
 }
